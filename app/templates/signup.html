@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+}
+
+.signup-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.signup-box{
+    width:950px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+/* Left Side */
+
+.left-box{
+    width:45%;
+    background:linear-gradient(135deg,#2563eb,#0f766e);
+    color:white;
+    padding:50px 35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left-box h1{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.left-box p{
+    font-size:16px;
+    line-height:28px;
+    margin-bottom:25px;
+}
+
+.left-box ul{
+    list-style:none;
+}
+
+.left-box ul li{
+    margin:15px 0;
+    font-size:17px;
+}
+
+/* Right Side */
+
+.right-box{
+    width:55%;
+    padding:45px;
+}
+
+.right-box h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#1e3a8a;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#2563eb;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+@media(max-width:900px){
+
+.signup-box{
+    flex-direction:column;
+}
+
+.left-box,
+.right-box{
+    width:100%;
+}
+
+}
+
+
+.input-group label{
+    display:block;
+    font-size:15px;
+    font-weight:600;
+    color:#1e293b;
+    margin-bottom:8px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+</style>
+
+<div class="signup-container">
+
+    <div class="signup-box">
+
+        <!-- Left Section -->
+
+        <div class="left-box">
+
+            <h1>Welcome to RoyalSole</h1>
+
+            <p>
+                Create your free account and enjoy a secure shopping
+                experience with exciting offers and premium products.
+            </p>
+
+            <ul>
+                <li>✔ Secure Account</li>
+                <li>✔ Fast Checkout</li>
+                <li>✔ Easy Order Tracking</li>
+                <li>✔ 24×7 Customer Support</li>
+            </ul>
+
+        </div>
+
+        <!-- Right Section -->
+
+        <div class="right-box">
+
+            <h2>Create Account</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            </div>
+        
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+        
+            <div class="input-group">
+                <label for="password1">Password</label>
+                <input type="password" id="password1" name="password1" placeholder="Enter Password" required>
+            </div>
+        
+            <div class="input-group">
+                <label for="password2">Confirm Password</label>
+                <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+            </div>
+        
+            <button type="submit">Sign Up</button>
+
+    </form>
+
+            <div class="login-link">
+                Already have an account?
+                {% comment %} <a href="{% url 'login' %}">Login</a>  {% endcomment %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
