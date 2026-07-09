@@ -81,6 +81,14 @@ body{
     margin-bottom:18px;
 }
 
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:600;
+    color:#1e293b;
+}
+
 .input-group input{
     width:100%;
     padding:14px;
@@ -99,15 +107,38 @@ button{
     padding:14px;
     border:none;
     background:#2563eb;
-    color:white;
+    color:#fff;
     border-radius:8px;
     font-size:17px;
     cursor:pointer;
+    transition:.3s;
 }
 
 button:hover{
     background:#1d4ed8;
 }
+
+/* Messages */
+
+.message{
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:600;
+}
+
+.message.success{
+    background:#d4edda;
+    color:#155724;
+}
+
+.message.error{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+/* Login Link */
 
 .login-link{
     text-align:center;
@@ -120,6 +151,8 @@ button:hover{
     font-weight:bold;
 }
 
+/* Responsive */
+
 @media(max-width:900px){
 
 .signup-box{
@@ -131,19 +164,6 @@ button:hover{
     width:100%;
 }
 
-}
-
-
-.input-group label{
-    display:block;
-    font-size:15px;
-    font-weight:600;
-    color:#1e293b;
-    margin-bottom:8px;
-}
-
-.input-group{
-    margin-bottom:18px;
 }
 
 </style>
@@ -178,38 +198,65 @@ button:hover{
 
             <h2>Create Account</h2>
 
-<form method="POST">
+            <!-- Messages -->
 
-    {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
+            <form method="POST">
 
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter Username" required>
-            </div>
-        
-            <div class="input-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter Email" required>
-            </div>
-        
-            <div class="input-group">
-                <label for="password1">Password</label>
-                <input type="password" id="password1" name="password1" placeholder="Enter Password" required>
-            </div>
-        
-            <div class="input-group">
-                <label for="password2">Confirm Password</label>
-                <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
-            </div>
-        
-            <button type="submit">Sign Up</button>
+                {% csrf_token %}
 
-    </form>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                           id="username"
+                           name="username"
+                           placeholder="Enter Username"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="Enter Email"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password1">Password</label>
+                    <input type="password"
+                           id="password1"
+                           name="password1"
+                           placeholder="Enter Password"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password"
+                           id="password2"
+                           name="password2"
+                           placeholder="Confirm Password"
+                           required>
+                </div>
+
+                <button type="submit">
+                    Sign Up
+                </button>
+
+            </form>
 
             <div class="login-link">
                 Already have an account?
-                {% comment %} <a href="{% url 'login' %}">Login</a>  {% endcomment %}
+                {% comment %} <a href="{% url 'login' %}">Login</a> {% endcomment %}
             </div>
 
         </div>
