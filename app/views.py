@@ -32,6 +32,28 @@ def signup(req):
         )
 
         messages.success(req, 'Signup Successfully')
-        return redirect('home')
+        return redirect('login')
 
     return render(req, 'signup.html')
+
+def login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        try:
+            user = User.objects.get(username=username)
+
+            if user.check_password(password):
+                request.session["username"] = user.username
+                messages.success(request, "Login Successfully")
+                return redirect("home")
+            else:
+                messages.error(request, "Wrong Password")
+                return redirect("login")
+
+        except User.DoesNotExist:
+            messages.error(request, "User Not Found")
+            return redirect("login")
+
+    return render(request, "login.html")

@@ -14,7 +14,7 @@ body{
     background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
 }
 
-.signup-container{
+.login-container{
     width:100%;
     min-height:100vh;
     display:flex;
@@ -23,7 +23,7 @@ body{
     padding:40px;
 }
 
-.signup-box{
+.login-box{
     width:950px;
     background:#fff;
     border-radius:20px;
@@ -32,12 +32,12 @@ body{
     box-shadow:0 15px 40px rgba(0,0,0,.3);
 }
 
-/* Left Side */
+/* Left */
 
 .left-box{
     width:45%;
     background:linear-gradient(135deg,#2563eb,#0f766e);
-    color:white;
+    color:#fff;
     padding:50px 35px;
     display:flex;
     flex-direction:column;
@@ -50,7 +50,6 @@ body{
 }
 
 .left-box p{
-    font-size:16px;
     line-height:28px;
     margin-bottom:25px;
 }
@@ -64,7 +63,7 @@ body{
     font-size:17px;
 }
 
-/* Right Side */
+/* Right */
 
 .right-box{
     width:55%;
@@ -73,20 +72,18 @@ body{
 
 .right-box h2{
     text-align:center;
-    margin-bottom:25px;
     color:#1e3a8a;
+    margin-bottom:25px;
 }
 
 .input-group{
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
 .input-group label{
     display:block;
     margin-bottom:8px;
-    font-size:15px;
     font-weight:600;
-    color:#1e293b;
 }
 
 .input-group input{
@@ -94,8 +91,8 @@ body{
     padding:14px;
     border:1px solid #ddd;
     border-radius:8px;
-    font-size:15px;
     outline:none;
+    font-size:15px;
 }
 
 .input-group input:focus{
@@ -106,26 +103,23 @@ button{
     width:100%;
     padding:14px;
     border:none;
+    border-radius:8px;
     background:#2563eb;
     color:#fff;
-    border-radius:8px;
     font-size:17px;
     cursor:pointer;
-    transition:.3s;
 }
 
 button:hover{
     background:#1d4ed8;
 }
 
-/* Messages */
-
 .message{
     padding:12px;
     border-radius:8px;
     margin-bottom:20px;
     text-align:center;
-    font-weight:600;
+    font-weight:bold;
 }
 
 .message.success{
@@ -138,24 +132,20 @@ button:hover{
     color:#721c24;
 }
 
-/* Login Link */
-
-.login-link{
+.signup-link{
     text-align:center;
     margin-top:20px;
 }
 
-.login-link a{
-    text-decoration:none;
+.signup-link a{
     color:#2563eb;
+    text-decoration:none;
     font-weight:bold;
 }
 
-/* Responsive */
-
 @media(max-width:900px){
 
-.signup-box{
+.login-box{
     flex-direction:column;
 }
 
@@ -168,37 +158,35 @@ button:hover{
 
 </style>
 
-<div class="signup-container">
+<div class="login-container">
 
-    <div class="signup-box">
+    <div class="login-box">
 
-        <!-- Left Section -->
+        <!-- Left -->
 
         <div class="left-box">
 
-            <h1>Welcome to RoyalSole</h1>
+            <h1>Welcome Back!</h1>
 
             <p>
-                Create your free account and enjoy a secure shopping
-                experience with exciting offers and premium products.
+                Login to your RoyalSole account and continue shopping
+                with exclusive offers and premium products.
             </p>
 
             <ul>
-                <li>✔ Secure Account</li>
-                <li>✔ Fast Checkout</li>
-                <li>✔ Easy Order Tracking</li>
+                <li>✔ Secure Login</li>
+                <li>✔ Fast Shopping</li>
+                <li>✔ Track Your Orders</li>
                 <li>✔ 24×7 Customer Support</li>
             </ul>
 
         </div>
 
-        <!-- Right Section -->
+        <!-- Right -->
 
         <div class="right-box">
 
-            <h2>Create Account</h2>
-
-            <!-- Messages -->
+            <h2>Login</h2>
 
             {% if messages %}
                 {% for message in messages %}
@@ -213,50 +201,24 @@ button:hover{
                 {% csrf_token %}
 
                 <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text"
-                        id="username"
-                        name="username"
-                        placeholder="Enter Username"
-                        required>
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Enter Username" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="email">Email Address</label>
-                    <input type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter Email"
-                        required>
-                </div>
-
-                <div class="input-group">
-                    <label for="password1">Password</label>
-                    <input type="password"
-                        id="password1"
-                        name="password1"
-                        placeholder="Enter Password"
-                        required>
-                </div>
-
-                <div class="input-group">
-                    <label for="password2">Confirm Password</label>
-                    <input type="password"
-                        id="password2"
-                        name="password2"
-                        placeholder="Confirm Password"
-                        required>
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter Password" required>
                 </div>
 
                 <button type="submit">
-                    Sign Up
+                    Login
                 </button>
 
             </form>
 
-            <div class="login-link">
-                Already have an account?
-                <a href="{% url 'login' %}">Login</a>
+            <div class="signup-link">
+                Don't have an account?
+                <a href="{% url 'signup' %}">Sign Up</a>
             </div>
 
         </div>
