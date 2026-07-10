@@ -57,3 +57,9 @@ def login(request):
             return redirect("login")
 
     return render(request, "login.html")
+
+
+def logout(req):
+    req.session.flush()
+    messages.success(req,'logout successfully')
+    return render(req,'login.html')
