@@ -24,6 +24,16 @@ urlpatterns = [
     path('signup/',views.signup,name='signup'),
     path('login/',views.login,name='login'),
     path('logout/',views.logout,name='logout'),
+    
+    path('setting/',views.setting,name='setting'),
+    path('profile/',views.profile,name='profile'),
+    path('security/',views.security,name='security'),
+    path('order/',views.order,name='order'),
+    path('help/',views.help,name='help'),
+    path('report/',views.report,name='report'),
+    
+
+    
 
     
 ]

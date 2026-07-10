@@ -46,6 +46,8 @@ def login(request):
 
             if user.check_password(password):
                 request.session["username"] = user.username
+                request.session["email"] = user.email
+                
                 messages.success(request, "Login Successfully")
                 return redirect("home")
             else:
@@ -63,3 +65,24 @@ def logout(req):
     req.session.flush()
     messages.success(req,'logout successfully')
     return render(req,'login.html')
+
+
+def setting(req):
+    return render(req,'setting.html')
+
+def profile(req):
+    return render(req,"setting.html",{"profile":True})
+
+
+
+def security(req):
+    return render(req,'setting.html',{'security':True})
+
+def help(req):
+    return render(req,'setting.html',{'help':True})
+
+def report(req):
+    return render(req,'setting.html',{'report':True})
+
+def order(req):
+    return render(req,'setting.html',{'order':True})

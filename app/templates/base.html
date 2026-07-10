@@ -6,6 +6,7 @@
 <title>RoyalSole</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -17,39 +18,35 @@ body{
     background:#f5f5f5;
 }
 
-/* ================= NAVBAR ================= */
+/*================ NAVBAR ================*/
 
 nav{
     width:100%;
+    height:85px;
     background:#111827;
-    padding:0 60px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:0 60px;
     position:sticky;
     top:0;
     z-index:1000;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 
 .logo img{
-    width:160px;
-    height:auto;
-    object-fit:contain;
+    width:170px;
 }
+
+/*================ RIGHT SECTION ================*/
 
 .right-section{
     display:flex;
     align-items:center;
-    gap:25px;
+    gap:30px;
 }
 
-/* ================= SEARCH ================= */
+/*================ SEARCH ================*/
 
 .search-box{
     display:flex;
@@ -57,20 +54,24 @@ nav{
 }
 
 .search-box input{
-    width:220px;
-    padding:10px 15px;
+    width:240px;
+    height:42px;
     border:none;
     outline:none;
-    border-radius:5px 0 0 5px;
+    padding:0 15px;
+    border-radius:6px 0 0 6px;
+    font-size:15px;
 }
 
 .search-box button{
-    padding:10px 18px;
+    width:100px;
+    height:42px;
     border:none;
     background:#facc15;
-    cursor:pointer;
-    border-radius:0 5px 5px 0;
+    color:#111827;
     font-weight:bold;
+    cursor:pointer;
+    border-radius:0 6px 6px 0;
     transition:.3s;
 }
 
@@ -78,25 +79,19 @@ nav{
     background:#eab308;
 }
 
-/* ================= NAV LINKS ================= */
+/*================ MENU ================*/
 
 .nav-links{
     display:flex;
     align-items:center;
     list-style:none;
-    gap:25px;
-}
-
-.nav-links li{
-    position:relative;
+    gap:20px;
 }
 
 .nav-links a{
     text-decoration:none;
-    color:#fff;
-    font-size:17px;
-    padding:10px 0;
-    display:block;
+    color:white;
+    font-size:16px;
     transition:.3s;
 }
 
@@ -104,18 +99,53 @@ nav{
     color:#facc15;
 }
 
-/* ================= DROPDOWN ================= */
+/*================ USER AREA ================*/
+
+.dropdown{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.user-name{
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+
+/*================ SETTINGS BUTTON ================*/
+
+.setting-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#1f2937;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.setting-btn:hover{
+    background:#facc15;
+    color:#111827;
+    transform:rotate(90deg);
+}
+
+/*================ DROPDOWN ================*/
 
 .dropdown-menu{
-    display:none;
     position:absolute;
-    top:100%;
+    top:60px;
     right:0;
-    min-width:190px;
-    background:#1f2937;
-    border-radius:8px;
+    width:220px;
+    background:white;
+    border-radius:10px;
     overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    display:none;
 }
 
 .dropdown-menu li{
@@ -124,64 +154,63 @@ nav{
 
 .dropdown-menu a{
     display:block;
-    padding:12px 18px;
-    color:#fff;
+    padding:15px 20px;
+    color:#111827;
     font-size:15px;
+    text-decoration:none;
     transition:.3s;
 }
 
 .dropdown-menu a:hover{
-    background:#374151;
-    color:#facc15;
+    background:#f3f4f6;
+    color:#2563eb;
+    padding-left:28px;
 }
 
-.dropdown:hover .dropdown-menu{
+.dropdown-menu{
+    display:none;
+}
+
+.dropdown-menu.show{
     display:block;
 }
 
-/* ================= MOBILE ================= */
+/*================ LOGIN BUTTONS ================*/
 
-@media(max-width:768px){
+.login-btn{
 
-    nav{
-        flex-direction:column;
-        gap:20px;
-        padding:20px;
-    }
+    padding:10px 18px;
+    background:#2563eb;
+    border-radius:6px;
+    color:white !important;
 
-    .right-section{
-        width:100%;
-        flex-direction:column;
-    }
-
-    .search-box{
-        width:100%;
-        justify-content:center;
-    }
-
-    .search-box input{
-        width:180px;
-    }
-
-    .nav-links{
-        flex-direction:column;
-        gap:10px;
-        text-align:center;
-    }
-
-    .dropdown-menu{
-        position:static;
-        width:100%;
-        margin-top:10px;
-    }
 }
 
-/* ================= FOOTER ================= */
+.signup-btn{
+
+    padding:10px 18px;
+    background:#facc15;
+    border-radius:6px;
+    color:#111827 !important;
+    font-weight:bold;
+
+}
+
+.login-btn:hover{
+    background:#1d4ed8;
+    color:white !important;
+}
+
+.signup-btn:hover{
+    background:#eab308;
+}
+
+/*================ FOOTER ================*/
 
 .footer{
     background:#111827;
-    color:#fff;
-    margin-top:60px;
+    color:white;
+    margin-top:70px;
 }
 
 .footer-container{
@@ -189,7 +218,7 @@ nav{
     margin:auto;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:40px;
+    gap:35px;
     padding:60px 40px;
 }
 
@@ -200,16 +229,15 @@ nav{
 }
 
 .footer-box p{
-    color:#d1d5db;
     line-height:1.8;
-    font-size:15px;
+    color:#d1d5db;
 }
 
 .footer-box a{
     display:block;
     color:#d1d5db;
+    margin:12px 0;
     text-decoration:none;
-    margin:10px 0;
     transition:.3s;
 }
 
@@ -219,26 +247,43 @@ nav{
 }
 
 .footer-bottom{
-    border-top:1px solid #374151;
     text-align:center;
     padding:20px;
+    border-top:1px solid #374151;
     color:#9ca3af;
-    font-size:15px;
 }
+
+/*================ MOBILE ================*/
 
 @media(max-width:768px){
 
-    .footer-container{
-        grid-template-columns:1fr;
-        text-align:center;
-        padding:40px 20px;
-    }
+nav{
+    flex-direction:column;
+    height:auto;
+    padding:20px;
+}
 
-    .footer-box a:hover{
-        padding-left:0;
-    }
+.right-section{
+    flex-direction:column;
+    width:100%;
+}
+
+.search-box input{
+    width:180px;
+}
+
+.nav-links{
+    flex-direction:column;
+}
+
+.dropdown-menu{
+    position:static;
+    width:100%;
+    margin-top:10px;
+}
 
 }
+
 </style>
 
 </head>
@@ -246,88 +291,189 @@ nav{
 
 <nav>
 
+    <!-- ========== LOGO ========== -->
     <a href="{% url 'home' %}" class="logo">
-        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1783589397/ChatGPT_Image_Jul_9__2026__02_50_45_PM-removebg-preview_u8qcej.png" alt="Royal Sole Logo">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1783589397/ChatGPT_Image_Jul_9__2026__02_50_45_PM-removebg-preview_u8qcej.png"
+             alt="RoyalSole Logo">
     </a>
 
     <div class="right-section">
 
-        <div class="search-box">
-            <input type="text" placeholder="Search products...">
-            <button>Search</button>
-        </div>
+        <!-- ========== SEARCH ========== -->
+        <form class="search-box" method="GET" action="#">
+            <input
+                type="text"
+                name="q"
+                placeholder="Search Shoes..."
+            >
+            <button type="submit">
+                🔍 Search
+            </button>
+        </form>
 
-<ul class="nav-links">
-    {% if request.session.username %}
+        <!-- ========== MENU ========== -->
+        <ul class="nav-links">
 
-    <li class="dropdown">
-        <a href="#">👋 {{ request.session.username }} ⚙️</a>
+            {% if request.session.username %}
 
-        <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li class="dropdown">
+
+                <!-- Username -->
+                <span class="user-name">
+                    👋 {{ request.session.username }}
+                </span>
+
+                <!-- Settings Button -->
+                <button class="setting-btn" type="button">
+                    ⚙️
+                </button>
+
+                <!-- Dropdown -->
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="#">
+                            👤 My Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            📦 My Orders
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            ❤️ Wishlist
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            💳 Payment Methods
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'setting' %}">
+                            ⚙️ Account Settings
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            ❓ Help Center
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'logout' %}">
+                            🚪 Logout
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            {% else %}
+
+            <li>
+                <a href="{% url 'login' %}" class="login-btn">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'signup' %}" class="signup-btn">
+                    Sign Up
+                </a>
+            </li>
+
+            {% endif %}
+
         </ul>
-    </li>
-
-    {% else %}
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-    {% endif %}
-</ul>
 
     </div>
 
 </nav>
+
 {% block content %}
 {% endblock %}
-
 <footer class="footer">
 
     <div class="footer-container">
 
         <div class="footer-box">
+
             <h2>RoyalSole</h2>
+
             <p>
-                RoyalSole is your trusted destination for premium quality shoes.
-                Discover stylish sneakers, sports shoes, casual wear and more at
-                affordable prices.
+                RoyalSole is your trusted destination for premium quality
+                sneakers, sports shoes, casual shoes and fashion footwear.
+                We deliver comfort, style and quality at the best prices.
             </p>
+
         </div>
 
         <div class="footer-box">
+
             <h3>Quick Links</h3>
 
-            <a href="{% url 'home' %}">Home</a>
-            <a href="#">Products</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="{% url 'home' %}">🏠 Home</a>
+            <a href="#">🛍 Products</a>
+            <a href="#">ℹ About Us</a>
+            <a href="#">📞 Contact</a>
+
         </div>
 
         <div class="footer-box">
-            <h3>Customer Service</h3>
 
-            <a href="#">My Orders</a>
-            <a href="#">Return Policy</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
+            <h3>Customer Support</h3>
+
+            <a href="#">📦 Track Order</a>
+            <a href="#">🔄 Return Policy</a>
+            <a href="#">🔒 Privacy Policy</a>
+            <a href="#">📄 Terms & Conditions</a>
+
         </div>
 
-        <div class="footer-box">
-            <h3>Contact</h3>
-
-            <p>📧 support@royalsole.com</p>
-            <p>📞 +91 6263442343</p>
-            <p>📍 Bhopal, Madhya Pradesh</p>
-        </div>
 
     </div>
 
     <div class="footer-bottom">
-        © 2026 RoyalSole. All Rights Reserved.
+
+        © 2026 RoyalSole. All Rights Reserved. |
+        Designed with ❤️ by RoyalSole Team
+
     </div>
 
 </footer>
+<script>
+
+const settingBtn = document.querySelector(".setting-btn");
+const dropdown = document.querySelector(".dropdown-menu");
+
+if(settingBtn){
+
+    settingBtn.addEventListener("click", function(e){
+
+        e.stopPropagation();
+
+        dropdown.classList.toggle("show");
+
+    });
+
+    document.addEventListener("click", function(){
+
+        dropdown.classList.remove("show");
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>

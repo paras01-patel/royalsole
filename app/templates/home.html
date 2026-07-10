@@ -1,1 +1,6 @@
 {% extends "base.html" %}
+{% block content %}
+{{request.session.email}}
+{{request.session.username}}
+
+{% endblock content %}

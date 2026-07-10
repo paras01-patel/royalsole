@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<style>
+
+/*================ LAYOUT ================*/
+
+.settings-container{
+    display:flex;
+    min-height:100vh;
+}
+
+/*================ SIDEBAR ================*/
+
+.sidebar{
+    width:280px;
+    background:#111827;
+    color:#fff;
+    padding:30px 0;
+}
+
+.sidebar-top{
+    text-align:center;
+    padding:0 20px 30px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.profile-image{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#facc15;
+    color:#111827;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    font-weight:bold;
+}
+
+.sidebar-top h2{
+    margin-top:15px;
+}
+
+.sidebar-top p{
+    margin-top:5px;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+/*================ MENU ================*/
+
+.menu{
+    list-style:none;
+    margin-top:25px;
+}
+
+.menu li{
+    margin:8px 15px;
+}
+
+.menu li a{
+    display:block;
+    padding:14px 18px;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.menu li a:hover{
+    background:#1f2937;
+    color:#facc15;
+}
+
+.menu .active a{
+    background:#facc15;
+    color:#111827;
+    font-weight:bold;
+}
+
+/*================ MOBILE ================*/
+
+@media(max-width:900px){
+
+.settings-container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+}
+
+.report-box{
+    width:100%;
+    padding:40px;
+    background:#f8f9fa;
+}
+
+.report-card{
+    max-width:700px;
+    margin:auto;
+    background:#fff;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.report-card h2{
+    margin-bottom:10px;
+    color:#222;
+}
+
+.report-card p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+}
+
+.form-group textarea{
+    resize:none;
+    height:140px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#facc15;
+}
+
+.btn-report{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#111827;
+    color:white;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-report:hover{
+    background:#facc15;
+    color:#111827;
+}
+
+
+</style>
+
+
+<div class="settings-container">
+
+    <!-- ============ SIDEBAR ============ -->
+
+    <div class="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="profile-image">
+                👤
+            </div>
+
+            <h2>{{ request.session.username }}</h2>
+
+            <p>RoyalSole Member</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="{% url "profile" %}">
+                    👤 My Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    ⚙️ Account Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'security' %}">
+                    🔒 Security
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'order' %}">
+                    📦 My Orders
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    📍 Manage Address
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    ❤️ Wishlist
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    💳 Payment Methods
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    🔔 Notifications
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'help' %}">
+                    🆘 Help Center
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'report' %}">
+                    🐞 Report a Problem
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'logout' %}">
+                    🚪 Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    {% if profile %}
+    sgdshkgh
+    {% elif security %}
+    fyguscgic
+    {% elif order %}
+    sffho
+    {% elif help %}
+    bisuefuifhuif
+    {% elif report %}
+
+<div class="report-box">
+
+    <div class="report-card">
+
+        <h2>🐞 Report a Problem</h2>
+
+        <p>
+            Found a bug or facing any issue? Let us know and we'll fix it as soon as possible.
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" value="{{request.session.username}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" value="{{request.session.email}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Problem Type</label>
+
+                <select name="report_type" required>
+
+                    <option value="">Select Problem</option>
+
+                    <option>Login Issue</option>
+
+                    <option>Payment Issue</option>
+
+                    <option>Order Issue</option>
+
+                    <option>Website Bug</option>
+
+                    <option>Delivery Issue</option>
+
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Describe Your Problem</label>
+
+                <textarea
+                name="description"
+                placeholder="Write your problem here..."
+                required></textarea>
+            </div>
+
+            <button class="btn-report">
+                Submit Report
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+    
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
