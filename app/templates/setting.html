@@ -173,6 +173,57 @@
 }
 
 
+.help-form{
+    width:600px;
+    margin:40px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.help-form h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.help-form label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.help-form input,
+.help-form select,
+.help-form textarea{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    outline:none;
+}
+
+.help-form textarea{
+    resize:vertical;
+}
+
+.help-form button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    background:#111;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.help-form button:hover{
+    background:#333;
+}
+
 </style>
 
 
@@ -273,7 +324,39 @@
     {% elif order %}
     sffho
     {% elif help %}
-    bisuefuifhuif
+    <div class="help-form">
+
+    <h2>Help Centre</h2>
+
+    <form method="POST" action="{% url 'help' %}">
+        {% csrf_token %}
+
+        <label>Full Name</label>
+        <input type="text" name="username" value={{request.session.username}} readonly>
+
+        <label>Email Address</label>
+        <input type="email" name="email" value={{request.session.email}} readonly>
+
+        <label>Help Topic</label>
+        <select name="topic" required>
+            <option value="">Select Topic</option>
+            <option value="Account">Account</option>
+            <option value="Order">Order</option>
+            <option value="Payment">Payment</option>
+            <option value="Delivery">Delivery</option>
+            <option value="Return">Return & Refund</option>
+            <option value="Technical">Technical Support</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label>Your Question</label>
+        <textarea name="message" rows="6" placeholder="Describe your problem..." required></textarea>
+
+        <button type="submit">Send Request</button>
+
+    </form>
+
+</div>
     {% elif report %}
 
 <div class="report-box">
@@ -292,7 +375,7 @@
 
             <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" name="name" value="{{request.session.username}}" readonly>
+                <input type="text" name="username" value="{{request.session.username}}" readonly>
             </div>
 
             <div class="form-group">
@@ -308,15 +391,10 @@
                     <option value="">Select Problem</option>
 
                     <option>Login Issue</option>
-
                     <option>Payment Issue</option>
-
                     <option>Order Issue</option>
-
                     <option>Website Bug</option>
-
                     <option>Delivery Issue</option>
-
                     <option>Other</option>
 
                 </select>
@@ -327,7 +405,7 @@
                 <label>Describe Your Problem</label>
 
                 <textarea
-                name="description"
+                name="des"
                 placeholder="Write your problem here..."
                 required></textarea>
             </div>

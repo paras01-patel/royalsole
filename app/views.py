@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
+
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import Report,Help
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 def home(req):
     return render(req, 'home.html')
@@ -79,10 +85,67 @@ def security(req):
     return render(req,'setting.html',{'security':True})
 
 def help(req):
+    if req.method=="POST":
+        username=req.POST.get('username')
+        email=req.POST.get('email')
+        topic=req.POST.get('topic')
+        message=req.POST.get('message')
+        
+        
+        data=Help.objects.create(
+            username=username,
+            email=email,
+            topic=topic,
+            message=message
+        )
+        data.save()
+        return redirect('setting')        
     return render(req,'setting.html',{'help':True})
 
 def report(req):
+    if req.method=="POST":
+        username=req.POST.get('username')
+        email=req.POST.get('email')
+        report_type=req.POST.get('report_type')
+        des=req.POST.get('des')
+        
+        
+        data=Report.objects.create(
+            username=username,
+            email=email,
+            report_type=report_type,
+            des=des
+        )
+        data.save()
+        return redirect('setting')        
     return render(req,'setting.html',{'report':True})
 
 def order(req):
     return render(req,'setting.html',{'order':True})
+
+
+
+
+def djangoemail(req):
+    if req.method == "POST":
+        name = req.POST.get("name")
+        email = req.POST.get("email")
+        contact = req.POST.get("contact")
+        query = req.POST.get("query")
+
+        send_mail(
+            subject="Testing from Django",
+            message=(
+                f"Email from: {email}\n"
+                f"Name: {name}\n"
+                f"Contact: {contact}\n"
+                f"Query: {query}"
+            ),
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=["paraschandrawanshi649@gmail.com"],
+            fail_silently=False,
+        )
+
+        return HttpResponse("MAIL DONE")
+
+    return HttpResponse("Invalid Request")

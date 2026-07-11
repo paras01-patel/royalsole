@@ -32,6 +32,9 @@ urlpatterns = [
     path('help/',views.help,name='help'),
     path('report/',views.report,name='report'),
     
+    path('djangomail/',views.djangoemail,name='djangomail'),
+    
+    
 
     
 
