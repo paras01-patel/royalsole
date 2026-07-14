@@ -47,6 +47,12 @@ def login(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
 
+        if username=='admin123' and password=='admin':
+            request.session['username']='admin123'
+            request.session['password']='admin'
+            messages.success(request,'admin login successfully')
+            return redirect('adminpanel') 
+        
         try:
             user = User.objects.get(username=username)
 
@@ -92,13 +98,13 @@ def help(req):
         message=req.POST.get('message')
         
         
-        data=Help.objects.create(
+        d=Help.objects.create(
             username=username,
             email=email,
             topic=topic,
             message=message
         )
-        data.save()
+        d.save()
         return redirect('setting')        
     return render(req,'setting.html',{'help':True})
 
@@ -149,3 +155,23 @@ def djangoemail(req):
         return HttpResponse("MAIL DONE")
 
     return HttpResponse("Invalid Request")
+
+
+
+def adminpanel(req):
+    return render(req,"adminpanel.html")
+
+def help_requests(req):
+    data = Help.objects.all()
+
+    return render(req, 'adminpanel.html', {
+        'help_requests': True,
+        'data': data,
+    })
+def issue_reports(req):
+    data = Report.objects.all()
+
+    return render(req, 'adminpanel.html', {
+        'issue_reports': True,
+        'data': data,
+    })

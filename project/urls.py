@@ -35,6 +35,14 @@ urlpatterns = [
     path('djangomail/',views.djangoemail,name='djangomail'),
     
     
+    path('adminpanel/',views.adminpanel,name='adminpanel'),
+    path('help_requests/',views.help_requests,name='help_requests'),
+    path('issue_reports/',views.issue_reports,name='issue_reports'),
+    
+    
+    
+    
+    
 
     
 
