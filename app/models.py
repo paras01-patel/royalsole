@@ -20,3 +20,20 @@ class Help(models.Model):
     email=models.EmailField(max_length=100)
     topic=models.CharField(max_length=50)
     message=models.CharField(max_length=1000)
+    
+    
+class Product(models.Model):
+    porduct_name=models.CharField(max_length=100)
+    
+class Adminporduct(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    img=models.ImageField(null=True,upload_to='')
+    dec=models.CharField(max_length=200)
+    price=models.IntegerField()
+    
+class Userpordect(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    img=models.ImageField(null=True,upload_to='')
+    dec=models.CharField(max_length=200)
+    price=models.IntegerField()
+    

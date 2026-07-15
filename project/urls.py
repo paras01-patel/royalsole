@@ -38,6 +38,8 @@ urlpatterns = [
     path('adminpanel/',views.adminpanel,name='adminpanel'),
     path('help_requests/',views.help_requests,name='help_requests'),
     path('issue_reports/',views.issue_reports,name='issue_reports'),
+    path('marchent/',views.marchent,name='marchent'),
+    
     
     
     

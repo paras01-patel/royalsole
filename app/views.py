@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Report,Help
+from .models import Report,Help,Userpordect
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -175,3 +175,7 @@ def issue_reports(req):
         'issue_reports': True,
         'data': data,
     })
+    
+    
+def marchent(req):
+    return render(req,'marchent.html')
