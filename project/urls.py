@@ -38,7 +38,10 @@ urlpatterns = [
     path('adminpanel/',views.adminpanel,name='adminpanel'),
     path('help_requests/',views.help_requests,name='help_requests'),
     path('issue_reports/',views.issue_reports,name='issue_reports'),
-    path('marchent/',views.marchent,name='marchent'),
+    path('merchant/',views.merchant,name='merchant'),
+    path('merchant_sign/',views.merchant_sign,name='merchant_sign'),
+    path('merchant_login/',views.merchant_login,name='merchant_login'),
+    
     
     
     

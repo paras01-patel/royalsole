@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Report,Help,Userpordect
+from .models import Report,Help,Userpordect,Merchant_signup
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -177,5 +176,66 @@ def issue_reports(req):
     })
     
     
-def marchent(req):
-    return render(req,'marchent.html')
+def merchant(req):
+    return render(req,'merchant.html')
+
+
+def merchant_sign(req):
+    if req.method == "POST":
+        username = req.POST.get("username")
+        email = req.POST.get("email")
+        password = req.POST.get("password")
+        confirm_password = req.POST.get("confirm_password")
+
+        # Password Match Check
+        if password != confirm_password:
+            messages.error(req, "Password does not match")
+            return redirect("merchant_sign")
+
+        # Username Check
+        if Merchant_signup.objects.filter(username=username).exists():
+            messages.error(req, "Username already exists")
+            return redirect("merchant_sign")
+
+        # Email Check
+        if Merchant_signup.objects.filter(email=email).exists():
+            messages.error(req, "Email already exists")
+            return redirect("merchant_sign")
+
+        # Save Merchant
+        Merchant_signup.objects.create(
+            username=username,
+            email=email,
+            password=password
+        )
+
+        messages.success(req, "Merchant Signup Successfully")
+        return redirect("merchant_login")
+
+    return render(req, "merchant_sign.html")
+
+
+def merchant_login(req):
+    if req.method == "POST":
+        email = req.POST.get("email")
+        password = req.POST.get("password")
+
+        try:
+            merchant = Merchant_signup.objects.get(email=email)
+
+            if merchant.password == password:
+                req.session["merchant_id"] = merchant.id
+                req.session["merchant_username"] = merchant.username
+
+                messages.success(req, "Login Successfully")
+                return redirect("merchant")
+
+            else:
+                messages.error(req, "Invalid Password")
+                return redirect("merchant_login")
+
+        except Merchant_signup.DoesNotExist:
+            messages.error(req, "Email does not exist")
+            return redirect("merchant_login")
+
+    return render(req, "merchant_login.html")

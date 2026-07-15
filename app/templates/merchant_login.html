@@ -1,0 +1,280 @@
+{% block content %}
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+}
+
+/* Main Container */
+
+.login-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+/* Connected Card */
+
+.login-wrapper{
+    width:950px;
+    display:flex;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+/* Left Side */
+
+.left-box{
+    width:45%;
+    background:linear-gradient(180deg,#2563eb,#1d4ed8,#1e3a8a);
+    color:white;
+    padding:55px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left-box h1{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.left-box p{
+    color:#e5e7eb;
+    line-height:28px;
+    margin-bottom:35px;
+    font-size:16px;
+}
+
+.feature{
+    background:rgba(255,255,255,.12);
+    border-left:4px solid #fbbf24;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
+    transition:.3s;
+}
+
+.feature:hover{
+    background:rgba(255,255,255,.22);
+    transform:translateX(8px);
+}
+
+/* Right Side */
+
+.login-box{
+    width:55%;
+    background:#fff;
+}
+
+.login-header{
+    background:#fff;
+    text-align:center;
+    padding:30px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.login-header h2{
+    color:#1e3a8a;
+    font-size:30px;
+}
+
+.login-header p{
+    color:#6b7280;
+    margin-top:8px;
+}
+
+.login-body{
+    padding:35px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#374151;
+}
+
+.form-group input{
+    width:100%;
+    padding:13px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.form-group input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,.2);
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    background:#f97316;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#ea580c;
+}
+
+.register{
+    text-align:center;
+    margin-top:20px;
+    color:#555;
+}
+
+.register a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.register a:hover{
+    color:#1d4ed8;
+}
+
+.msg{
+    color:red;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.login-wrapper{
+    width:100%;
+    flex-direction:column;
+}
+
+.left-box,
+.login-box{
+    width:100%;
+}
+
+.left-box{
+    text-align:center;
+}
+
+}
+
+</style>
+
+<div class="login-container">
+
+    <div class="login-wrapper">
+
+        <!-- Left Side -->
+
+        <div class="left-box">
+
+            <h1>Welcome Back 👋</h1>
+
+            <p>
+                Login to your merchant account and manage products,
+                orders, customers and sales from one secure dashboard.
+            </p>
+
+            <div class="feature">
+                ✔ Manage Your Products
+            </div>
+
+            <div class="feature">
+                ✔ Track Customer Orders
+            </div>
+
+            <div class="feature">
+                ✔ View Sales Reports
+            </div>
+
+            <div class="feature">
+                ✔ Update Inventory
+            </div>
+
+            <div class="feature">
+                ✔ Secure Merchant Dashboard
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="login-box">
+
+            <div class="login-header">
+                <h2>Merchant Login</h2>
+                <p>Login to your merchant account</p>
+            </div>
+
+            <div class="login-body">
+
+                {% if messages %}
+                    {% for i in messages %}
+                        <p class="msg">{{ i }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Enter Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter Password" required>
+                    </div>
+
+                    <button type="submit" class="login-btn">
+                        Login
+                    </button>
+
+                </form>
+
+                <div class="register">
+                    Don't have an account?
+                    <a href="{% url 'merchant_sign' %}">
+                        Register Here
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

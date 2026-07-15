@@ -37,3 +37,9 @@ class Userpordect(models.Model):
     dec=models.CharField(max_length=200)
     price=models.IntegerField()
     
+
+
+class Merchant_signup(models.Model):
+    username = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=100)
