@@ -239,3 +239,8 @@ def merchant_login(req):
             return redirect("merchant_login")
 
     return render(req, "merchant_login.html")
+
+
+
+def merchant_verification_frm(req):
+    return render(req,'merchant_verification_frm.html')

@@ -41,6 +41,7 @@ urlpatterns = [
     path('merchant/',views.merchant,name='merchant'),
     path('merchant_sign/',views.merchant_sign,name='merchant_sign'),
     path('merchant_login/',views.merchant_login,name='merchant_login'),
+    path('merchant_verification_frm/',views.merchant_verification_frm,name='merchant_verification_frm'),
     
     
     

@@ -1,0 +1,1565 @@
+{% block content %}
+<style>
+    /* ===========================
+        GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    color:#1e293b;
+}
+
+/* ===========================
+        CONTAINER
+=========================== */
+
+.merchant-container{
+    width:100%;
+}
+
+/* ===========================
+        HERO SECTION
+=========================== */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 10%;
+    background:linear-gradient(135deg,#0f172a,#1d4ed8);
+    color:white;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.hero-right{
+    width:45%;
+    display:flex;
+    justify-content:center;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    background:white;
+    border-radius:50%;
+    padding:8px;
+    margin-bottom:20px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f97316;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+    line-height:70px;
+}
+
+.hero p{
+    color:#dbeafe;
+    font-size:18px;
+    line-height:32px;
+    margin-bottom:35px;
+}
+
+.hero-image{
+    width:100%;
+    max-width:500px;
+}
+
+/* ===========================
+        BUTTONS
+=========================== */
+
+.hero-btns{
+    display:flex;
+    gap:20px;
+}
+
+.btn1{
+
+    text-decoration:none;
+    background:#f97316;
+    color:white;
+    padding:15px 35px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
+
+}
+
+.btn1:hover{
+
+    background:#ea580c;
+
+}
+
+.btn2{
+
+    text-decoration:none;
+    color:white;
+    border:2px solid white;
+    padding:15px 35px;
+    border-radius:8px;
+    transition:.3s;
+
+}
+
+.btn2:hover{
+
+    background:white;
+    color:#1d4ed8;
+
+}
+
+/* ===========================
+        ABOUT
+=========================== */
+
+.about{
+
+    width:90%;
+    margin:80px auto;
+    text-align:center;
+
+}
+
+.about h2{
+
+    font-size:40px;
+    margin-bottom:25px;
+    color:#1d4ed8;
+
+}
+
+.about p{
+
+    max-width:900px;
+    margin:auto;
+    line-height:34px;
+    color:#555;
+    font-size:18px;
+
+}
+
+/* ===========================
+        FEATURES
+=========================== */
+
+.choose{
+
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+
+}
+
+.choose h2{
+
+    text-align:center;
+    font-size:40px;
+    color:#1d4ed8;
+
+}
+
+.sub{
+
+    text-align:center;
+    color:#666;
+    margin-top:10px;
+    margin-bottom:40px;
+
+}
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    text-align:center;
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.card img{
+
+    width:70px;
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    margin-bottom:15px;
+    color:#1e293b;
+
+}
+
+.card p{
+
+    color:#666;
+    line-height:28px;
+
+}
+/* ===========================
+        STATISTICS
+=========================== */
+
+.stats{
+    width:90%;
+    margin:80px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat{
+    background:white;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-10px);
+}
+
+.stat h1{
+    font-size:45px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.stat span{
+    color:#555;
+    font-size:17px;
+}
+
+
+/* ===========================
+        SELLING STEPS
+=========================== */
+
+.steps{
+    width:90%;
+    margin:80px auto;
+}
+
+.steps h2{
+    text-align:center;
+    font-size:38px;
+    color:#1d4ed8;
+    margin-bottom:40px;
+}
+
+.step-box{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.step{
+    background:#ffffff;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.step:hover{
+    transform:translateY(-10px);
+}
+
+.step h1{
+    font-size:55px;
+    color:#f97316;
+    margin-bottom:15px;
+}
+
+.step h3{
+    margin-bottom:15px;
+    color:#1e293b;
+}
+
+.step p{
+    color:#666;
+    line-height:28px;
+}
+
+
+/* ===========================
+        VERIFICATION
+=========================== */
+
+.verify-info{
+    width:90%;
+    margin:80px auto;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:50px;
+    border-radius:20px;
+}
+
+.verify-info h2{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.verify-info p{
+    line-height:32px;
+    color:#dbeafe;
+}
+
+
+/* ===========================
+        IMPORTANT BOX
+=========================== */
+
+.important{
+    width:90%;
+    margin:60px auto;
+}
+
+.important-box{
+    background:#fff;
+    border-left:6px solid #f97316;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.important-box h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.important-box p{
+    color:#555;
+    line-height:30px;
+    margin-bottom:20px;
+}
+
+.important-box ul{
+    margin-left:20px;
+}
+
+.important-box li{
+    line-height:35px;
+    color:#444;
+}
+
+
+/* ===========================
+        FORM
+=========================== */
+
+.form-section{
+    width:90%;
+    margin:80px auto;
+}
+
+.form-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.form-title h2{
+    font-size:40px;
+    color:#1d4ed8;
+    margin-bottom:15px;
+}
+
+.form-title p{
+    color:#666;
+}
+
+.form-card{
+    background:white;
+    margin-bottom:35px;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.form-card h2{
+    color:#2563eb;
+    margin-bottom:25px;
+}
+
+.form-note{
+    color:#666;
+    margin-bottom:20px;
+}
+
+
+/* ===========================
+        ROW
+=========================== */
+
+.row{
+    display:flex;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+.input-box{
+    flex:1;
+}
+
+.input-box.full{
+    width:100%;
+}
+
+
+/* ===========================
+        LABEL
+=========================== */
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#1e293b;
+}
+
+
+/* ===========================
+        INPUT
+=========================== */
+
+.input-box input,
+.input-box select{
+
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+
+}
+
+.input-box input:focus,
+.input-box select:focus{
+
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,.2);
+
+}
+
+.input-box input[type="file"]{
+
+    padding:12px;
+    background:#f8fafc;
+
+}
+/* ===========================
+        DECLARATION
+=========================== */
+
+.agreement{
+    background:#fff7ed;
+    border-left:6px solid #f97316;
+    padding:35px;
+    border-radius:15px;
+    margin-top:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.agreement h2{
+    color:#ea580c;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.agreement p{
+    color:#555;
+    line-height:30px;
+    margin-bottom:25px;
+}
+
+.check{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    font-size:16px;
+    color:#333;
+    font-weight:500;
+}
+
+.check input{
+    margin-top:5px;
+    transform:scale(1.2);
+    cursor:pointer;
+}
+
+
+/* ===========================
+        SUBMIT BUTTON
+=========================== */
+
+.submit-area{
+    margin-top:40px;
+    text-align:center;
+}
+
+.submit-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#f97316,#ea580c);
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    letter-spacing:.5px;
+}
+
+.submit-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(249,115,22,.35);
+}
+
+
+/* ===========================
+        PRIVACY
+=========================== */
+
+.privacy{
+    width:90%;
+    margin:80px auto;
+    background:#eff6ff;
+    padding:45px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.privacy h2{
+    color:#1d4ed8;
+    margin-bottom:20px;
+    font-size:34px;
+}
+
+.privacy p{
+    color:#555;
+    line-height:32px;
+    max-width:900px;
+    margin:auto;
+}
+
+
+/* ===========================
+        FOOTER
+=========================== */
+
+.merchant-footer{
+    margin-top:70px;
+    background:#0f172a;
+    color:#fff;
+    text-align:center;
+    padding:45px 20px;
+}
+
+.merchant-footer h3{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.merchant-footer p{
+    color:#cbd5e1;
+    line-height:30px;
+    max-width:800px;
+    margin:10px auto;
+}
+
+
+/* ===========================
+        SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#e5e7eb;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#1d4ed8;
+}
+
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+    .cards,
+    .stats,
+    .step-box{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero{
+        padding:60px 7%;
+    }
+
+    .hero h1{
+        font-size:45px;
+        line-height:58px;
+    }
+}
+
+@media(max-width:768px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+        min-height:auto;
+        padding:50px 25px;
+    }
+
+    .hero-left,
+    .hero-right{
+        width:100%;
+    }
+
+    .hero-btns{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .row{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .cards,
+    .stats,
+    .step-box{
+        grid-template-columns:1fr;
+    }
+
+    .about h2,
+    .choose h2,
+    .steps h2,
+    .form-title h2,
+    .privacy h2{
+        font-size:30px;
+    }
+
+    .hero h1{
+        font-size:36px;
+        line-height:48px;
+    }
+
+    .verify-info{
+        padding:30px;
+    }
+
+    .form-card,
+    .agreement{
+        padding:25px;
+    }
+}
+
+@media(max-width:480px){
+
+    .btn1,
+    .btn2{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero p,
+    .about p,
+    .privacy p{
+        font-size:15px;
+        line-height:28px;
+    }
+
+    .merchant-footer h3{
+        font-size:24px;
+    }
+
+    .stat h1{
+        font-size:36px;
+    }
+
+    .step h1{
+        font-size:42px;
+    }
+}
+</style>
+<div class="merchant-container">
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1783589397/ChatGPT_Image_Jul_9__2026__02_50_45_PM-removebg-preview_u8qcej.png" class="logo">
+
+            <span class="tag">
+                ★ Trusted Footwear Marketplace
+            </span>
+
+            <h1>
+                RoyalSole Merchant Portal
+            </h1>
+
+            <p>
+
+                Welcome to RoyalSole, a modern footwear marketplace where
+                businesses can grow by selling quality shoes, sneakers,
+                sandals and fashion footwear across India.
+
+            </p>
+
+            <div class="hero-btns">
+
+                <a href="#verify" class="btn1">
+                    Become a Seller
+                </a>
+
+                <a href="#about" class="btn2">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-right">
+
+            <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1783589397/ChatGPT_Image_Jul_9__2026__02_50_45_PM-removebg-preview_u8qcej.png" class="hero-image">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <h2>
+            Welcome to RoyalSole
+        </h2>
+
+        <p>
+
+            RoyalSole is an online footwear platform built to connect
+            trusted merchants with customers looking for high-quality
+            footwear products.
+
+            Whether you own a shoe shop, footwear showroom,
+            sneaker collection or fashion brand,
+            RoyalSole provides everything you need
+            to sell online successfully.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= WHY CHOOSE ================= -->
+
+    <section class="choose">
+
+        <h2>
+            Why Sell on RoyalSole?
+        </h2>
+
+        <p class="sub">
+
+            Grow your footwear business with powerful seller tools,
+            secure payments and a trusted customer base.
+
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <img src="">
+
+                <h3>
+                    Easy Product Listing
+                </h3>
+
+                <p>
+
+                    Upload products quickly with complete
+                    descriptions, pricing and images.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <img src="">
+
+                <h3>
+                    Secure Payments
+                </h3>
+
+                <p>
+
+                    Receive payments directly into your
+                    verified bank account.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <img src="">
+
+                <h3>
+                    Manage Orders
+                </h3>
+
+                <p>
+
+                    Track customer orders and manage
+                    deliveries from your dashboard.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <img src="">
+
+                <h3>
+                    Business Growth
+                </h3>
+
+                <p>
+
+                    Reach thousands of customers and
+                    increase your sales every month.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <h1>
+                10K+
+            </h1>
+
+            <span>
+                Happy Customers
+            </span>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <h1>
+                500+
+            </h1>
+
+            <span>
+                Trusted Merchants
+            </span>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <h1>
+                15K+
+            </h1>
+
+            <span>
+                Products Listed
+            </span>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <h1>
+                24×7
+            </h1>
+
+            <span>
+                Seller Support
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SELLING STEPS ================= -->
+
+    <section class="steps">
+
+        <h2>
+            Start Selling in 4 Easy Steps
+        </h2>
+
+        <div class="step-box">
+
+            <div class="step">
+
+                <h1>01</h1>
+
+                <h3>Create Account</h3>
+
+                <p>
+
+                    Register yourself as a RoyalSole merchant.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <h1>02</h1>
+
+                <h3>Verify Profile</h3>
+
+                <p>
+
+                    Complete merchant verification
+                    with required documents.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <h1>03</h1>
+
+                <h3>Upload Products</h3>
+
+                <p>
+
+                    Add shoes, sandals and
+                    fashion products.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <h1>04</h1>
+
+                <h3>Start Selling</h3>
+
+                <p>
+
+                    Receive orders and grow
+                    your online business.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- ================= VERIFICATION NOTICE ================= -->
+
+    <section class="verify-info" id="verify">
+
+        <h2>Merchant Verification</h2>
+
+        <p>
+
+            Before selling on <strong>RoyalSole</strong>, every merchant must
+            complete the verification process. This helps us maintain a
+            trusted marketplace where customers can shop confidently.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= IMPORTANT INFORMATION ================= -->
+
+    <section class="important">
+
+        <div class="important-box">
+
+            <h2>Why do we need these details?</h2>
+
+            <p>
+
+                Your documents are used only for merchant verification
+                and secure payment processing.
+
+            </p>
+
+            <ul>
+
+                <li>✔ Verify your identity</li>
+
+                <li>✔ Prevent fake sellers</li>
+
+                <li>✔ Secure bank payments</li>
+
+                <li>✔ Maintain customer trust</li>
+
+                <li>✔ Create a trusted marketplace</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FORM START ================= -->
+
+    <section class="form-section">
+
+        <div class="form-title">
+
+            <h2>
+                Merchant Verification Form
+            </h2>
+
+            <p>
+
+                Please provide accurate information.
+                All fields marked with (*) are required.
+
+            </p>
+
+        </div>
+
+
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <div class="form-card">
+
+                <h2>
+                    Personal Information
+                </h2>
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>First Name *</label>
+
+                        <input
+                            type="text"
+                            name="first_name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Last Name *</label>
+
+                        <input
+                            type="text"
+                            name="last_name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>Gender *</label>
+
+                        <select name="gender">
+
+                            <option>Select Gender</option>
+
+                            <option>Male</option>
+
+                            <option>Female</option>
+
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <label>Date of Birth *</label>
+
+                        <input
+                            type="date"
+                            name="dob"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>Email *</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <label>Mobile Number *</label>
+
+                        <input
+                            type="text"
+                            name="mobile"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="input-box full">
+
+                        <label>
+                            Profile Photo *
+                        </label>
+
+                        <input
+                            type="file"
+                            name="profile"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IDENTITY VERIFICATION -->
+
+            <div class="form-card">
+
+                <h2>
+                    Identity Verification
+                </h2>
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>
+                            Aadhaar Number *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="aadhaar"
+                            maxlength="12"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <label>
+                            Upload Aadhaar Card *
+                        </label>
+
+                        <input
+                            type="file"
+                            name="aadhaar_file"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>
+                            PAN Number *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="pan"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-box">
+
+                        <label>
+                            Upload PAN Card *
+                        </label>
+
+                        <input
+                            type="file"
+                            name="pan_file"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- ================= BANK DETAILS ================= -->
+
+            <div class="form-card">
+
+                <h2>
+                    Bank Details
+                </h2>
+
+                <p class="form-note">
+
+                    Your bank details are required to receive payments
+                    securely from RoyalSole.
+
+                </p>
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>
+                            Account Holder Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="account_holder"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>
+                            Bank Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="bank_name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <label>
+                            Account Number *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="account_number"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>
+                            IFSC Code *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="ifsc"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="input-box full">
+
+                        <label>
+                            Upload Passbook / Cancelled Cheque *
+                        </label>
+
+                        <input
+                            type="file"
+                            name="passbook"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= MERCHANT AGREEMENT ================= -->
+
+            <div class="agreement">
+
+                <h2>
+                    Merchant Declaration
+                </h2>
+
+                <p>
+
+                    I hereby declare that all the information provided
+                    by me is true and correct.
+
+                    I understand that RoyalSole has the right to reject
+                    or suspend my merchant account if any information
+                    or uploaded document is found to be incorrect,
+                    fake or misleading.
+
+                </p>
+
+                <label class="check">
+
+                    <input
+                        type="checkbox"
+                        required
+                    >
+
+                    I agree to the RoyalSole Merchant Terms &
+                    Conditions and Privacy Policy.
+
+                </label>
+
+            </div>
+
+
+
+            <!-- ================= SUBMIT BUTTON ================= -->
+
+            <div class="submit-area">
+
+                <button type="submit" class="submit-btn">
+
+                    Complete Verification
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ================= PRIVACY ================= -->
+
+    <section class="privacy">
+
+        <h2>
+            Your Information is Safe
+        </h2>
+
+        <p>
+
+            RoyalSole values your privacy.
+
+            All personal details, identity documents and bank
+            information are encrypted and used only for merchant
+            verification and payment processing.
+
+            We never share your information with unauthorized
+            third parties.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="merchant-footer">
+
+        <h3>
+            RoyalSole Merchant Portal
+        </h3>
+
+        <p>
+
+            Thank you for choosing RoyalSole.
+
+            We are excited to help you grow your business
+            and connect with thousands of customers.
+
+        </p>
+
+        <p>
+
+            © 2026 RoyalSole. All Rights Reserved.
+
+        </p>
+
+    </footer>
+
+</div>
+
+{% endblock %}
