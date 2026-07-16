@@ -279,5 +279,5 @@ def merchant_verification_frm(req):
         )
 
         data.save()
-        return redirect('merchant_verification_frm')
+        return redirect('merchant')
     return render(req, 'merchant_verification_frm.html')

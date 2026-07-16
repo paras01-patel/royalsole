@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoyalSole Merchant</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            background:#f5f5f5;
+        }
+
+        /* =========================
+              NAVBAR
+        ========================== */
+
+        .navbar{
+            width:100%;
+            height:70px;
+            background:#1f2937;
+            display:flex;
+            justify-content:flex-end;
+            align-items:center;
+            padding:0 35px;
+            box-shadow:0 3px 10px rgba(0,0,0,.2);
+        }
+
+        .navbar h2{
+            color:#f59e0b;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .navbar span{
+            color:#ffffff;
+        }
+
+        /* =========================
+            MAIN CONTENT
+        ========================== */
+
+        .main-content{
+            flex:1;
+            padding:30px;
+        }
+
+        /* =========================
+              FOOTER
+        ========================== */
+
+        .merchant-footer{
+            background:#1f2937;
+            color:#fff;
+            text-align:center;
+            padding:35px 20px;
+            border-top:4px solid #f59e0b;
+        }
+
+        .merchant-footer h3{
+            color:#f59e0b;
+            font-size:26px;
+            margin-bottom:15px;
+        }
+
+        .merchant-footer p{
+            color:#d1d5db;
+            font-size:15px;
+            line-height:28px;
+            max-width:750px;
+            margin:10px auto;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <h2>
+            Welcome,
+            <span>{{ request.session.merchant_username }}</span> 👋
+        </h2>
+
+    </nav>
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="merchant-footer">
+
+        <h3>RoyalSole Merchant Portal</h3>
+
+        <p>
+            Thank you for choosing RoyalSole. We are excited to help you grow your business and connect with thousands of customers through our trusted marketplace.
+        </p>
+
+        <p>
+            © 2026 RoyalSole. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

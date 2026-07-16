@@ -1,3 +1,4 @@
+{% extends "merchantbase.html" %}
 {% block content %}
 <style>
     * {
@@ -23,17 +24,17 @@
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     }
 
-    .logo {
-        padding: 25px;
-        text-align: center;
-        color: white;
-        border-bottom: 1px solid #334155;
-    }
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
 
-    .logo h2 {
-        font-size: 24px;
-        font-weight: bold;
-    }
+.logo img{
+    width: 150px;
+    height: auto;
+}
 
     .sidebar ul {
         list-style: none;
@@ -220,9 +221,9 @@
 </style>
 
 <div class="sidebar">
-    <div class="logo">
-        <h2></h2>
-    </div>
+<div class="logo">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1783589397/ChatGPT_Image_Jul_9__2026__02_50_45_PM-removebg-preview_u8qcej.png" alt="RoyalSole Logo">
+</div>
 
     <ul>
         <li><a href="">🏠 Dashboard</a></li>
