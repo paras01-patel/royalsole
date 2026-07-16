@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Report,Help,Userpordect,Merchant_signup
+from .models import Report,Help,Userpordect,Merchant_signup,MerchantVerification
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -240,7 +240,44 @@ def merchant_login(req):
 
     return render(req, "merchant_login.html")
 
-
-
 def merchant_verification_frm(req):
-    return render(req,'merchant_verification_frm.html')
+    if req.method == "POST":
+        first_name = req.POST.get('first_name')
+        last_name = req.POST.get('last_name')
+        gender = req.POST.get('gender')
+        dob = req.POST.get('dob')
+        email = req.POST.get('email')
+        mobile = req.POST.get('mobile')
+        profile = req.FILES.get('profile')
+        aadhaar = req.POST.get('aadhaar')
+        aadhaar_file = req.FILES.get('aadhaar_file')
+        pan = req.POST.get('pan')
+        pan_file = req.FILES.get('pan_file')
+        account_holder = req.POST.get('account_holder')
+        bank_name = req.POST.get('bank_name')
+        account_number = req.POST.get('account_number')
+        ifsc = req.POST.get('ifsc')
+        passbook = req.FILES.get('passbook')
+
+        data = MerchantVerification.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            gender=gender,
+            dob=dob,
+            email=email,
+            mobile=mobile,
+            profile=profile,
+            aadhaar=aadhaar,
+            aadhaar_file=aadhaar_file,
+            pan=pan,
+            pan_file=pan_file,
+            account_holder=account_holder,
+            bank_name=bank_name,
+            account_number=account_number,
+            ifsc=ifsc,
+            passbook=passbook
+        )
+
+        data.save()
+        return redirect('merchant_verification_frm')
+    return render(req, 'merchant_verification_frm.html')

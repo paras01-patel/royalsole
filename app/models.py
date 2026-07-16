@@ -43,3 +43,28 @@ class Merchant_signup(models.Model):
     username = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
+
+
+class MerchantVerification(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    GENDER = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    ]
+    gender = models.CharField(max_length=10, choices=GENDER)
+    dob = models.DateField()
+    email = models.EmailField()
+    mobile = models.CharField(max_length=10)
+    profile = models.ImageField(upload_to='merchant/profile/')
+    aadhaar = models.CharField(max_length=12)
+    aadhaar_file = models.FileField(upload_to='merchant/aadhaar/')
+    pan = models.CharField(max_length=10)
+    pan_file = models.FileField(upload_to='merchant/pan/')
+    account_holder = models.CharField(max_length=100)
+    bank_name = models.CharField(max_length=100)
+    account_number = models.CharField(max_length=30)
+    ifsc = models.CharField(max_length=11)
+    passbook = models.FileField(upload_to='merchant/passbook/')
+    created_at = models.DateTimeField(auto_now_add=True)
